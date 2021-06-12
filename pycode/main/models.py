@@ -14,7 +14,7 @@ class Category(models.Model):
 		return self.name
 
 
-class Tag(model.Model):
+class Tag(models.Model):
 	name = models.CharField('tag', max_length=100)
 	slug = models.SlugField('slug', max_length=100)
 	color = models.CharField('color', max_length=100)
