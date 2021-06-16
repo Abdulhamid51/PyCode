@@ -26,8 +26,8 @@ class Tag(models.Model):
 class Posts(models.Model):
 	author = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='user_post', null=True)
 	title = models.CharField('title',max_length=500)
-	tag = models.ManyToManyField(Tag, related_name='posts', null=True)
-	date = models.DateTimeField('date',auto_add_now=True)
+	tag = models.ManyToManyField(Tag, related_name='posts')
+	date = models.DateTimeField('date', auto_now_add=True)
 	body = RichTextField('body')
 	slug = models.SlugField('slug', max_length=30)
 
@@ -38,7 +38,7 @@ class Blogs(models.Model):
 	author = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='user_blog', null=True)
 	title = models.CharField('title',max_length=500)
 	category = models.ForeignKey(Category, related_name='blogs', on_delete=models.PROTECT, null=True)
-	date = models.DateTimeField('date',auto_add_now=True)
+	date = models.DateTimeField('date', auto_now_add=True)
 	image = models.ImageField('image', upload_to='blogs/', blank=True)
 	body = RichTextField('body')
 	slug = models.SlugField('slug', max_length=30)

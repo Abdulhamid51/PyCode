@@ -1,0 +1,40 @@
+{% extends 'wrapper.html' %}
+{% load static %}
+
+
+{% block content %}
+	<div class="container">
+        <!-- detail header -->
+        <div class="row justify-content-between align-items-center mt-5">
+            <div class="col-lg-6 col-sm-12">
+                <h1>Post title wegver regrthgrtsh trhtyrjhy trhtrds</h1>
+            </div>
+            <div class="col-auto">
+                <i>Sanasi: 12-yan, 2021</i>
+                <hr>
+                <a href="" class="btn btn-warning">Python</a>
+                <a href="" class="btn btn-danger">Django</a>
+                <a href="" class="btn btn-primary">beginer</a>
+            </div>
+            <div class="col-auto">
+                <a href=""><div class="card p-3 mt-3">
+                    <img src="/static/assets/images/users/user-1.jpg" class="avatar m-2" alt="user_avatar">
+                    <h3>Abdulhamid</h3>
+                    <p><a href="">followers: 46 </a>|<a href=""> following: 17</a></p>
+                </div></a>
+            </div>
+        </div><hr>
+        <!-- detail body -->
+        <pre>
+urlpatterns = [
+    path("", HomeView.as_view(), name="home"),
+    path("posts/", PostsView.as_view(), name="posts"),
+    path("blogs/", BlogsView.as_view(), name="blogs"),
+    path("mycontents/", MyPostsView.as_view(), name="content"),
+    path("follow/", FollowView.as_view(), name="follow"),
+    path("detail/", postdetail, name="postde")
+]
+        </pre>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis deleniti accusantium rem voluptatibus. Sed animi explicabo possimus voluptatibus maxime minima natus architecto, nesciunt, consequuntur, nobis saepe et ea nam impedit?</p>
+    </div>
+{% endblock content %}

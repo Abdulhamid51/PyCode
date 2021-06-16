@@ -1,0 +1,219 @@
+{% extends 'wrapper.html' %}
+{% load static %}
+
+
+{% block content %}
+	
+	
+    
+    <div class="app-wrapper">
+	    
+	    <div class="app-content pt-3 p-md-3 p-lg-4">
+		    <div class="container-xl">
+			    
+			    <div class="row g-3 mb-4 align-items-center justify-content-between">
+				    <div class="col-auto">
+			            <h1 class="app-page-title mb-0">Foydalanuvchilar</h1>
+				    </div>
+				    
+			    </div><!--//row-->
+			   
+			    
+			    <nav id="orders-table-tab" class="orders-table-tab app-nav-tabs nav shadow-sm flex-column flex-sm-row mb-4">
+				    <a class="flex-sm-fill text-sm-center nav-link active" id="orders-all-tab" data-toggle="tab" href="#orders-all" role="tab" aria-controls="orders-all" aria-selected="true">Kuzatuvchilar</a>
+				    <a class="flex-sm-fill text-sm-center nav-link"  id="orders-paid-tab" data-toggle="tab" href="#orders-paid" role="tab" aria-controls="orders-paid" aria-selected="false">Kuzatyapman</a>
+				    <a class="flex-sm-fill text-sm-center nav-link" id="orders-pending-tab" data-toggle="tab" href="#orders-pending" role="tab" aria-controls="orders-pending" aria-selected="false">Yangi qo'shilganlar</a>
+				    <a class="flex-sm-fill text-sm-center nav-link" id="orders-cancelled-tab" data-toggle="tab" href="#orders-cancelled" role="tab" aria-controls="orders-cancelled" aria-selected="false">Eng mashxurlar</a>
+				</nav>
+				
+				
+				<div class="tab-content" id="orders-table-tab-content">
+			        <div class="tab-pane fade show active" id="orders-all" role="tabpanel" aria-labelledby="orders-all-tab">
+					    <div class=" shadow-sm mb-5">
+
+						    <div class="card mb-2 shadow-sm p-3	">
+								<div class="row">
+									<div class="col-lg-1 col-md-2"><img src="/static/assets/images/users/user-2.jpg" class="avatar" alt="user_avatar"></div>
+									<div class="col-lg-4 col-md-4">
+										<a href="#"><h3>Samira</h3>Egamberdiyeva</a>
+									</div>
+									<div class="col-lg-5 mt-3"><i class="small"><a href=""> Following 25; </a><a href=""> Followers 12k</a></i></div>
+									<div class="col-lg-2 col-md-2">
+										<div class="btn btn-success mt-3">Following</div>
+									</div>
+								</div>
+							</div>
+			
+							<div class="card mb-2 shadow-sm p-3	">
+								<div class="row">
+									<div class="col-lg-1 col-md-2"><img src="/static/assets/images/user.png" width="80" alt="user_avatar"></div>
+									<div class="col-lg-4 col-md-4">
+										<a href="#"><h3>Abdulhamid</h3>Zuhriddinov</a>
+									</div>
+									<div class="col-lg-5 mt-3"><i class="small"><a href=""> Following 25; </a><a href=""> Followers 12k</a></i></div>
+									<div class="col-lg-2 col-md-2">
+										<div class="btn btn-success mt-3">Following</div>
+									</div>
+								</div>
+							</div>	
+							
+							<div class="card mb-2 shadow-sm p-3	">
+								<div class="row">
+									<div class="col-lg-1 col-md-2"><img src="/static/assets/images/users/user-1.jpg" class="avatar" alt="user_avatar"></div>
+									<div class="col-lg-4 col-md-4">
+										<a href="#"><h3>Samira</h3>Egamberdiyeva</a>
+									</div>
+									<div class="col-lg-5 mt-3"><i class="small"><a href=""> Following 25; </a><a href=""> Followers 12k</a></i></div>
+									<div class="col-lg-2 col-md-2">
+										<div class="btn btn-success mt-3">Following</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="card mb-2 shadow-sm p-3	">
+								<div class="row">
+									<div class="col-lg-1 col-md-2"><img src="/static/assets/images/users/user-3.jpg" class="avatar" alt="user_avatar"></div>
+									<div class="col-lg-4 col-md-4">
+										<a href="#"><h3>Samira</h3>Egamberdiyeva</a>
+									</div>
+									<div class="col-lg-5 mt-3"><i class="small"><a href=""> Following 25; </a><a href=""> Followers 12k</a></i></div>
+									<div class="col-lg-2 col-md-2">
+										<div class="btn btn-success mt-3">Following</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="card mb-2 shadow-sm p-3	">
+								<div class="row">
+									<div class="col-lg-1 col-md-2"><img src="/static/assets/images/users/user-4.jpg" class="avatar" alt="user_avatar"></div>
+									<div class="col-lg-4 col-md-4">
+										<a href="#"><h3>Samira</h3>Egamberdiyeva</a>
+									</div>
+									<div class="col-lg-5 mt-3"><i class="small"><a href=""> Following 25; </a><a href=""> Followers 12k</a></i></div>
+									<div class="col-lg-2 col-md-2">
+										<div class="btn btn-success mt-3">Following</div>
+									</div>
+								</div>
+							</div>
+
+						</div><!--//app-card-->
+						<nav class="app-pagination">
+							<ul class="pagination justify-content-center">
+								<li class="page-item disabled">
+									<a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+							    </li>
+								<li class="page-item active"><a class="page-link" href="#">1</a></li>
+								<li class="page-item"><a class="page-link" href="#">2</a></li>
+								<li class="page-item"><a class="page-link" href="#">3</a></li>
+								<li class="page-item">
+								    <a class="page-link" href="#">Next</a>
+								</li>
+							</ul>
+						</nav><!--//app-pagination-->
+						
+			        </div><!--//tab-pane-->
+			        
+			        <div class="tab-pane fade" id="orders-paid" role="tabpanel" aria-labelledby="orders-paid-tab">
+					    <div class=" mb-5">
+						    
+							<div class="card mb-2 shadow-sm p-3	">
+								<div class="row">
+									<div class="col-lg-1 col-md-2"><img src="/static/assets/images/users/user-3.jpg" class="avatar" alt="user_avatar"></div>
+									<div class="col-lg-4 col-md-4">
+										<a href="#"><h3>Samira</h3>Egamberdiyeva</a>
+									</div>
+									<div class="col-lg-5 mt-3"><i class="small"><a href=""> Following 25; </a><a href=""> Followers 12k</a></i></div>
+									<div class="col-lg-2 col-md-2">
+										<div class="btn btn-success mt-3">Following</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="card mb-2 shadow-sm p-3	">
+								<div class="row">
+									<div class="col-lg-1 col-md-2"><img src="/static/assets/images/users/user-4.jpg" class="avatar" alt="user_avatar"></div>
+									<div class="col-lg-4 col-md-4">
+										<a href="#"><h3>Samira</h3>Egamberdiyeva</a>
+									</div>
+									<div class="col-lg-5 mt-3"><i class="small"><a href=""> Following 25; </a><a href=""> Followers 12k</a></i></div>
+									<div class="col-lg-2 col-md-2">
+										<div class="btn btn-success mt-3">Following</div>
+									</div>
+								</div>
+							</div>
+									
+						</div><!--//app-card-->
+			        </div><!--//tab-pane-->
+			        
+			        <div class="tab-pane fade" id="orders-pending" role="tabpanel" aria-labelledby="orders-pending-tab">
+					    <div class=" mb-5">
+
+							<div class="card mb-2 shadow-sm p-3	">
+								<div class="row">
+									<div class="col-lg-1 col-md-2"><img src="/static/assets/images/users/user-2.jpg" class="avatar" alt="user_avatar"></div>
+									<div class="col-lg-4 col-md-4">
+										<a href="#"><h3>Samira</h3>Egamberdiyeva</a>
+									</div>
+									<div class="col-lg-5 mt-3"><i class="small"><a href=""> Following 25; </a><a href=""> Followers 12k</a></i></div>
+									<div class="col-lg-2 col-md-2">
+										<div class="btn btn-success mt-3">Following</div>
+									</div>
+								</div>
+							</div>
+			
+							<div class="card mb-2 shadow-sm p-3	">
+								<div class="row">
+									<div class="col-lg-1 col-md-2"><img src="/static/assets/images/user.png" width="80" alt="user_avatar"></div>
+									<div class="col-lg-4 col-md-4">
+										<a href="#"><h3>Abdulhamid</h3>Zuhriddinov</a>
+									</div>
+									<div class="col-lg-5 mt-3"><i class="small"><a href=""> Following 25; </a><a href=""> Followers 12k</a></i></div>
+									<div class="col-lg-2 col-md-2">
+										<div class="btn btn-success mt-3">Following</div>
+									</div>
+								</div>
+							</div>	
+								
+						</div><!--//app-card-->
+			        </div><!--//tab-pane-->
+			        <div class="tab-pane fade" id="orders-cancelled" role="tabpanel" aria-labelledby="orders-cancelled-tab">
+					    <div class="mb-5">
+						    
+							<div class="card mb-2 shadow-sm p-3	">
+								<div class="row">
+									<div class="col-lg-1 col-md-2"><img src="/static/assets/images/user.png" width="80" alt="user_avatar"></div>
+									<div class="col-lg-4 col-md-4">
+										<a href="#"><h3>Abdulhamid</h3>Zuhriddinov</a>
+									</div>
+									<div class="col-lg-5 mt-3"><i class="small"><a href=""> Following 25; </a><a href=""> Followers 12k</a></i></div>
+									<div class="col-lg-2 col-md-2">
+										<div class="btn btn-success mt-3">Following</div>
+									</div>
+								</div>
+							</div>	
+							
+							<div class="card mb-2 shadow-sm p-3	">
+								<div class="row">
+									<div class="col-lg-1 col-md-2"><img src="/static/assets/images/users/user-1.jpg" class="avatar" alt="user_avatar"></div>
+									<div class="col-lg-4 col-md-4">
+										<a href="#"><h3>Samira</h3>Egamberdiyeva</a>
+									</div>
+									<div class="col-lg-5 mt-3"><i class="small"><a href=""> Following 25; </a><a href=""> Followers 12k</a></i></div>
+									<div class="col-lg-2 col-md-2">
+										<div class="btn btn-success mt-3">Following</div>
+									</div>
+								</div>
+							</div>
+	
+						</div><!--//app-card-->
+			        </div><!--//tab-pane-->
+				</div><!--//tab-content-->
+				
+				
+			    
+		    </div><!--//container-fluid-->
+	    </div><!--//app-content-->
+
+
+		{% endblock content %}
+
