@@ -1,0 +1,172 @@
+{% extends 'wrapper.html' %}
+{% load static %}
+
+{% block content %}
+	
+	
+    <div class="app-wrapper">
+	    
+	    <div class="app-content pt-3 p-md-3 p-lg-4">
+		    <div class="container-xl">			    
+			    <h1 class="app-page-title">Profilni yangilash</h1>
+			    <hr class="mb-4">
+				<form class="settings-form" action="" method="POST">
+					{% csrf_token %}
+					<div class="row g-4 settings-section">
+						<div class="col-12 col-md-4">
+							<h3 class="section-title">Mening ma'lumotlarim</h3>
+							<div class="section-intro">Ma'lumotlaringizni yozish o'zingizni ixtiyoringizda. Sizning ma'lumotlaringizdan foydalanmaymiz. <a href="help.html">Ko'proq</a></div>
+						</div>
+						<div class="col-12 col-md-8">
+							<div class="app-card app-card-settings shadow-sm p-4">
+								
+						    <div class="app-card-body">
+							    <div class="row">
+									<div class="col-6">
+										<div class="mb-3">
+										<label for="setting-input-1" class="form-label">Kasbingiz<span class="ml-2" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="Umid qilamizki kasbingiz dasturchi"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+											<path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+  <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+  <circle cx="8" cy="4.5" r="1"/>
+</svg></span></label>
+											{{form.job}}
+										</div>
+										<div class="mb-3">
+											<label for="setting-input-2" class="form-label">Tug'ilgan kuningiz (kk.oo.yyyy)</label>
+											{{form.birth}}
+										</div>
+										<div class="mb-3">
+											<label for="setting-input-3" class="form-label">Manzilingiz</label>
+											{{form.place}}
+										</div>
+									</div>
+
+									<div class="col-6">
+										<div class="mb-3">
+											<label for="setting-input-3" class="form-label">Telefon no.</label>
+											{{form.phone}}
+										</div>
+										<div class="mb-3">
+											<label for="setting-input-2" class="form-label">Github (username)</label>
+											{{form.github}}
+										</div>
+										<div class="mb-3">
+											<label for="setting-input-2" class="form-label">Telegram (username)</label>
+											{{form.telegram}}
+										</div>
+									</div>
+								</div>
+									
+									
+									
+						    </div><!--//app-card-body-->
+						    
+						</div><!--//app-card-->
+	                </div>
+                </div><!--//row-->
+                <hr class="my-4">
+                <div class="row g-4 settings-section">
+					<div class="col-12 col-md-4">
+						<h3 class="section-title">Bilim darajasi (%)</h3>
+		                <div class="section-intro">Qaysi dasturlash tilini qanchalik bilishingizni foizlarda yozing. <a href="help.html">Ko'proq</a></div>
+	                </div>
+	                <div class="col-12 col-md-8">
+						<div class="app-card app-card-settings shadow-sm p-4">
+								
+							<div class="app-card-body">
+								<div class="row">
+									<div class="col-6">
+										<label>Python</label>
+										{{form.python}}
+										<label>JS</label>
+										{{form.js}}
+										<label>PHP</label>
+										{{form.php}}
+										
+									</div>
+									<div class="col-6">
+										<label>C++, C#, C</label>
+										{{form.c}}
+										<label>Java</label>
+										{{form.java}}
+
+									</div>
+								</div>
+						    </div><!--//app-card-body-->
+						</div><!--//app-card-->
+	                </div>
+                </div><!--//row-->
+                <hr class="my-4">
+                <div class="row g-4 settings-section">
+					<div class="col-12 col-md-4">
+						<h3 class="section-title">Bio</h3>
+		                <div class="section-intro">Bu sizning biografiyangiz. Bu sizni boshqa foydalanuvchilar yaqinroq tanishib olishi uchun.</div>
+	                </div>
+	                <div class="col-12 col-md-8">
+						<div class="app-card app-card-settings shadow-sm p-4">						    
+							<div class="app-card-body">
+									
+									{{form.bio}}
+									<div class="mt-3">
+									</div>
+						    </div><!--//app-card-body-->						    
+						</div><!--//app-card-->
+	                </div>
+                </div><!--//row-->
+                <hr class="my-4">
+                <div class="row g-4 settings-section">
+	                <div class="col-12 col-md-4">
+						<h3 class="section-title">Qo'shimcha ma'lumotlar</h3>
+		                <div class="section-intro"></div>
+	                </div>
+	                <div class="col-12 col-md-8">
+						<div class="app-card app-card-settings shadow-sm p-4">						    
+							<div class="app-card-body">
+								<div class="row">
+									<div class="col-6">
+										<h3 class="section-title">Ta'lim</h3>
+										<label>Sana</label>
+										{{form.edu_date}}
+										<label>Tasurotlar</label>
+										{{form.edu}}
+									</div>
+									<div class="col-6">
+										<h3 class="section-title">Mehnat faoliyati</h3>
+										<label>Sana</label>
+										{{form.work_date}}
+										<label>Tasurotlar</label>
+										{{form.work}}
+									</div>
+								</div>
+						    </div><!--//app-card-body-->						    
+						</div><!--//app-card-->
+	                </div>
+					<div class="row fixed-bottom align-items-center justify-content-between">
+						<div class="col-auto"></div>
+						<div class="col-auto">
+							<button type="submit" class="btn app-btn-primary m-3" ><span class="fa fa-file"></span> Saqlash</button>
+						</div>
+					</div>
+                </div><!--//row-->
+			</form>
+			    <hr class="my-4">
+		    </div><!--//container-fluid-->
+	    </div><!--//app-content-->
+	    
+<script>
+	document.querySelector('#id_job').className='form-control'
+	document.querySelector('#id_birth').className='form-control'
+	document.querySelector('#id_place').className='form-control'
+	document.querySelector('#id_phone').className='form-control'
+	document.querySelector('#id_telegram').className='form-control'
+	document.querySelector('#id_github').className='form-control'
+	document.querySelector('#id_python').className='form-control w-50 mb-2'
+	document.querySelector('#id_js').className='form-control w-50 mb-2'
+	document.querySelector('#id_php').className='form-control w-50 mb-2'
+	document.querySelector('#id_c').className='form-control w-50 mb-2'
+	document.querySelector('#id_java').className='form-control w-50 mb-2'
+	document.querySelector('#id_edu_date').className='form-control'
+	document.querySelector('#id_work_date').className='form-control'
+</script>
+		{% endblock content %}
+
