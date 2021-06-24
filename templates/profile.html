@@ -10,25 +10,31 @@
 	    <div class="app-content pt-3 p-md-3 p-lg-4">
 		    <div class="container-xl">
 			    
-			    <h1 class="app-page-title">Mening profilim</h1>
+			    <h1 class="app-page-title">{{object.user.first_name}}ning profili</h1>
                 <div class="row gy-4">
 	                <div class="col-12 col-lg-6">
 		                <div class="app-card app-card-account shadow-sm d-flex flex-column align-items-start">
 						    <div class="app-card-header p-3 border-bottom-0">
 						        <div class="row align-items-center gx-3">
 							        <div class="col-auto">
-								        <h4 class="app-card-title">Mening ma'lumotim</h4>
+								        <h4 class="app-card-title">Ma'lumotlari</h4>
 							        </div><!--//col-->
+                                    <div class="col-auto">
+                                        <a href="" class="btn btn-secondary">Postlari</a>
+                                    </div>
+                                    <div class="col-auto">
+                                        <a href="" class="btn btn-primary">Kuzatish</a>
+                                    </div>
 						        </div><!--//row-->
 						    </div><!--//app-card-header-->
 						    <div class="app-card-body px-4 w-100">
 							    <div class="item border-bottom border-top py-3">
 								    <div class="row justify-content-between align-items-center">
 									    <div class="col-auto">
-										    <div class="item-label mb-2"><strong>Rasmim</strong></div>
+										    <div class="item-label mb-2"><strong>Rasmi</strong></div>
 											
-											{% if request.user.user_profile.avatar %}
-												<div class="item-data"><img class="avatar" src="{{request.user.user_profile.avatar.url}}" alt=""></div>
+											{% if object.avatar %}
+												<div class="item-data"><img class="avatar" src="{{object.avatar.url}}" alt=""></div>
 												{% else %}
 												<div class="item-data"><img class="avatar" src="/static/assets/user.png" alt=""></div>
 											{% endif %}
@@ -41,8 +47,8 @@
 							    <div class="item border-bottom py-3">
 								    <div class="row justify-content-between align-items-center">
 									    <div class="col-auto">
-										    <div class="item-label"><strong>Ismim</strong></div>
-									        <div class="item-data">{{request.user.first_name}}</div>
+										    <div class="item-label"><strong>Ismi</strong></div>
+									        <div class="item-data">{{object.user.first_name}}</div>
 									    </div><!--//col-->
 									    <div class="col text-right">
 										    
@@ -52,8 +58,8 @@
 							    <div class="item border-bottom py-3">
 								    <div class="row justify-content-between align-items-center">
 									    <div class="col-auto">
-										    <div class="item-label"><strong>Familiyam</strong></div>
-									        <div class="item-data">{{request.user.last_name}}</div>
+										    <div class="item-label"><strong>Familiyasi</strong></div>
+									        <div class="item-data">{{object.user.last_name}}</div>
 									    </div><!--//col-->
 									    <div class="col text-right">
 										    
@@ -64,7 +70,7 @@
 								    <div class="row justify-content-between align-items-center">
 									    <div class="col-auto">
 										    <div class="item-label"><strong>Email</strong></div>
-									        <div class="item-data">{{request.user.email}}</div>
+									        <div class="item-data">{{object.user.email}}</div>
 									    </div><!--//col-->
 									    <div class="col text-right">
 										    
@@ -75,7 +81,7 @@
 								    <div class="row justify-content-between align-items-center">
 									    <div class="col-auto">
 										    <div class="item-label"><strong>Telefon no.</strong></div>
-									        <div class="item-data">{{request.user.user_profile.phone}}</div>
+									        <div class="item-data">{{object.phone}}</div>
 									    </div><!--//col-->
 									    <div class="col text-right">
 										    
@@ -87,8 +93,8 @@
 									    <div class="col-auto">
 										    <div class="item-label mb-3"><strong>Sahifalar</strong></div>
 									        <div class="item-data d-flex">
-										        <h6 class="mr-3"><a href="https://github.com/{{request.user.user_profile.github}}"><span class="fab fa-github"></span>GitHub</a></h6>
-												<h6><a href="https://t.me/{{request.user.user_profile.telegram}}"><span class="fab fa-telegram"></span>Telegram</a></h6>
+										        <h6 class="mr-3"><a href="https://github.com/{{object.github}}"><span class="fab fa-github"></span>GitHub</a></h6>
+												<h6><a href="https://t.me/{{object.telegram}}"><span class="fab fa-telegram"></span>Telegram</a></h6>
 									        </div>
 									    </div><!--//col-->
 									    <div class="col text-right">
@@ -101,7 +107,7 @@
 									    <div class="col-auto">
 										    <div class="item-label"><strong>Yashash joyi</strong></div>
 									        <div class="item-data">
-										        {{request.user.user_profile.place}}
+										        {{object.place}}
 									        </div>
 									    </div><!--//col-->
 									    <div class="col text-right">
@@ -114,7 +120,7 @@
 									    <div class="col-auto">
 										    <div class="item-label"><strong>Tug'ilgan kuni</strong></div>
 									        <div class="item-data">
-										        {{request.user.user_profile.birth}}
+										        {{object.birth}}
 									        </div>
 									    </div><!--//col-->
 									    <div class="col text-right">
@@ -122,9 +128,6 @@
 									    </div><!--//col-->
 								    </div><!--//row-->
 							    </div><!--//item-->
-								<div class="app-card-footer pt-4 pb-4 mt-auto">
-									<a class="btn app-btn-secondary" href="{% url 'accounts:update_profile' %}">Yangilash</a>
-								</div><!--//app-card-footer-->
 						    </div><!--//app-card-body-->
 						   
 						</div><!--//app-card-->
@@ -144,7 +147,7 @@
 									    <div class="col">
 										    <div class="title mb-1 ">Python</div>
 										    <div class="progress">
-  <div class="progress-bar bg-success" role="progressbar" style="width: {{request.user.user_profile.python}}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+  <div class="progress-bar bg-success" role="progressbar" style="width: {{object.python}}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
 									    </div><!--//col-->
 									    <div class="col-auto">
@@ -162,7 +165,7 @@
 									    <div class="col">
 										    <div class="title mb-1 ">Javascript</div>
 										    <div class="progress">
-  <div class="progress-bar bg-success" role="progressbar" style="width: {{request.user.user_profile.js}}%;" aria-valuenow="34" aria-valuemin="0" aria-valuemax="100"></div>
+  <div class="progress-bar bg-success" role="progressbar" style="width: {{object.js}}%;" aria-valuenow="34" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
 									    </div><!--//col-->
 									    <div class="col-auto">
@@ -179,7 +182,7 @@
 									    <div class="col">
 										    <div class="title mb-1 ">PHP</div>
 										    <div class="progress">
-  <div class="progress-bar bg-success" role="progressbar" style="width: {{request.user.user_profile.php}}%;" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100"></div>
+  <div class="progress-bar bg-success" role="progressbar" style="width: {{object.php}}%;" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
 									    </div><!--//col-->
 									    <div class="col-auto">
@@ -196,7 +199,7 @@
 									    <div class="col">
 										    <div class="title mb-1 ">Java</div>
 										    <div class="progress">
-  <div class="progress-bar bg-success" role="progressbar" style="width: {{request.user.user_profile.java}}%;" aria-valuenow="52" aria-valuemin="0" aria-valuemax="100"></div>
+  <div class="progress-bar bg-success" role="progressbar" style="width: {{object.java}}%;" aria-valuenow="52" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
 									    </div><!--//col-->
 									    <div class="col-auto">
@@ -212,7 +215,7 @@
 									    <div class="col">
 										    <div class="title mb-1 ">C++, C#, C</div>
 										    <div class="progress">
-  <div class="progress-bar bg-success" role="progressbar" style="width: {{request.user.user_profile.c}}%;" aria-valuenow="52" aria-valuemin="0" aria-valuemax="100"></div>
+  <div class="progress-bar bg-success" role="progressbar" style="width: {{object.c}}%;" aria-valuenow="52" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
 									    </div><!--//col-->
 									    <div class="col-auto">
@@ -224,30 +227,27 @@
 								    
 							    </div><!--//item-->
 								
-								{% if request.user.user_profile.bio %}
+								{% if object.bio %}
 								<div class="item p-3">
 									<h4 class="app-card-title m-3">Biografiya</h4>
-									<hr><p>{{request.user.user_profile.bio|safe}}</p>
+									<hr><p>{{object.bio|safe}}</p>
 								</div>
 								{% endif %}
 									
-								{% if request.user.user_profile.edu %}
+								{% if object.edu %}
 								<div class="item p-3">
 									<h4 class="app-card-title m-3">Ta'lim joyi</h4>
-									<hr><b>Boshlagan sanasi: {{request.user.user_profile.edu_date}}</b><p>{{request.user.user_profile.edu|safe}}</p>
+									<hr><b>Boshlagan sanasi: {{object.edu_date}}</b><p>{{object.edu|safe}}</p>
 								</div>
 								{% endif %}
 								
-								{% if request.user.user_profile.work %}
+								{% if object.work %}
 								<div class="item p-3">
 									<h4 class="app-card-title m-3">Kasbi</h4>
-									<hr><b>Boshlagan sanasi: {{request.user.user_profile.work_date}}</b><p>{{request.user.user_profile.work|safe}}</p>
+									<hr><b>Boshlagan sanasi: {{object.work_date}}</b><p>{{object.work|safe}}</p>
 								</div>
 								{% endif %}
 								
-								<div class="app-card-footer p-4 mt-auto">
-									<a class="btn app-btn-secondary" href="{% url 'accounts:update_profile' %}">Yangilash</a>
-								</div><!--//app-card-footer-->
 		
 					        </div><!--//app-card-body-->
 				        </div><!--//app-card-->
@@ -257,10 +257,6 @@
 			    
 		    </div><!--//container-fluid-->
 	    </div><!--//app-content-->
-	    <script>
-			if ( window.history.replaceState ) {
-			 window.history.replaceState( null, null, window.location.href );
-			}
-		</script>
+	    
 	{% endblock content %}
 

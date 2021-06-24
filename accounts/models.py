@@ -24,7 +24,7 @@ class Jobs(models.Model):
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='user_profile', null=True)
-    slug = models.SlugField('userslug', max_length=200)
+    slug = models.SlugField('userslug', max_length=200, unique=True)
     avatar = models.ImageField('avatar image', upload_to='user_avatars/', null=True, blank=True)
     bg_color = models.ForeignKey(Colors, on_delete=models.PROTECT, related_name='colors', blank=True, null=True)
     job = models.ForeignKey(Jobs, related_name=("jobs"), on_delete=models.PROTECT, null=True, blank=True)

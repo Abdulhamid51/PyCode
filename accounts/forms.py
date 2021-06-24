@@ -21,13 +21,13 @@ class UpdateProfileForm(forms.ModelForm):
 
     class Meta:
         model = UserProfile
-        fields = ['job','birth','place','phone',
+        fields = ['avatar','job','birth','place','phone',
         'telegram','github','python','php','js','java',
         'c','edu','edu_date','work','work_date','bio']
 
 
-class UpdateAvatar(forms.ModelForm):
+# class UpdateAvatar(forms.ModelForm):
 
-    class Meta:
-        model = UserProfile
-        fields = ['avatar']
+#     class Meta:
+#         model = UserProfile
+#         fields = []

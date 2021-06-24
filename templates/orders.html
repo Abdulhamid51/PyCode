@@ -31,71 +31,29 @@
 			        <div class="tab-pane fade show active" id="orders-all" role="tabpanel" aria-labelledby="orders-all-tab">
 					    <div class=" shadow-sm mb-5">
 
-						    <div class="card mb-2 shadow-sm p-3	">
-								<div class="row">
-									<div class="col-lg-1 col-md-2"><img src="/static/assets/images/users/user-2.jpg" class="avatar" alt="user_avatar"></div>
-									<div class="col-lg-4 col-md-4">
-										<a href="#"><h3>Samira</h3>Egamberdiyeva</a>
-									</div>
-									<div class="col-lg-5 mt-3"><i class="small"><a href=""> Following 25; </a><a href=""> Followers 12k</a></i></div>
-									<div class="col-lg-2 col-md-2">
-										<div class="btn btn-success mt-3">Following</div>
-									</div>
-								</div>
-							</div>
-			
-							<div class="card mb-2 shadow-sm p-3	">
-								<div class="row">
-									<div class="col-lg-1 col-md-2"><img src="/static/assets/images/user.png" width="80" alt="user_avatar"></div>
-									<div class="col-lg-4 col-md-4">
-										<a href="#"><h3>Abdulhamid</h3>Zuhriddinov</a>
-									</div>
-									<div class="col-lg-5 mt-3"><i class="small"><a href=""> Following 25; </a><a href=""> Followers 12k</a></i></div>
-									<div class="col-lg-2 col-md-2">
-										<div class="btn btn-success mt-3">Following</div>
-									</div>
-								</div>
-							</div>	
+{% for user in user %}
+				<div class="card mb-2 shadow-sm p-3	">
+					<div class="row">
+						
+						{% if user.avatar %}
+							<div class="col-lg-1 col-md-2"><img src="{{user.avatar.url}}" class="avatar" alt="user_avatar"></div>
+							{% else %}
+							<div class="col-lg-1 col-md-2"><img src="/static/assets/user.png" class="avatar" alt="user_avatar"></div>
+						{% endif %}
 							
-							<div class="card mb-2 shadow-sm p-3	">
-								<div class="row">
-									<div class="col-lg-1 col-md-2"><img src="/static/assets/images/users/user-1.jpg" class="avatar" alt="user_avatar"></div>
-									<div class="col-lg-4 col-md-4">
-										<a href="#"><h3>Samira</h3>Egamberdiyeva</a>
-									</div>
-									<div class="col-lg-5 mt-3"><i class="small"><a href=""> Following 25; </a><a href=""> Followers 12k</a></i></div>
-									<div class="col-lg-2 col-md-2">
-										<div class="btn btn-success mt-3">Following</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="card mb-2 shadow-sm p-3	">
-								<div class="row">
-									<div class="col-lg-1 col-md-2"><img src="/static/assets/images/users/user-3.jpg" class="avatar" alt="user_avatar"></div>
-									<div class="col-lg-4 col-md-4">
-										<a href="#"><h3>Samira</h3>Egamberdiyeva</a>
-									</div>
-									<div class="col-lg-5 mt-3"><i class="small"><a href=""> Following 25; </a><a href=""> Followers 12k</a></i></div>
-									<div class="col-lg-2 col-md-2">
-										<div class="btn btn-success mt-3">Following</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="card mb-2 shadow-sm p-3	">
-								<div class="row">
-									<div class="col-lg-1 col-md-2"><img src="/static/assets/images/users/user-4.jpg" class="avatar" alt="user_avatar"></div>
-									<div class="col-lg-4 col-md-4">
-										<a href="#"><h3>Samira</h3>Egamberdiyeva</a>
-									</div>
-									<div class="col-lg-5 mt-3"><i class="small"><a href=""> Following 25; </a><a href=""> Followers 12k</a></i></div>
-									<div class="col-lg-2 col-md-2">
-										<div class="btn btn-success mt-3">Following</div>
-									</div>
-								</div>
-							</div>
-
+						
+						<div class="col-lg-4 col-md-4">
+							<a href="{% url 'accounts:user_detail' user.slug %}"><h3>{{user.user.first_name}}</h3>{{user.user.last_name}}</a>
+						</div>
+						<div class="col-lg-5 mt-3"><i class="small"><a href=""> Following 25; </a><a href=""> Followers 12k</a></i></div>
+						<div class="col-lg-2 col-md-2">
+							<div class="btn btn-success mt-3">Following</div>
+						</div>
+					</div>
+				</div>
+{% endfor %}
+			
+						
 						</div><!--//app-card-->
 						<nav class="app-pagination">
 							<ul class="pagination justify-content-center">

@@ -31,26 +31,24 @@
 					    
 				    </div><!--//inner-->
 			    </div><!--//app-card-->
-				<h2 class="m-3">Kuzatmoqdaman</h2>
-
-			    <div class="card mb-2 shadow-sm p-3	">
-					<div class="row">
-						<div class="col-lg-1 col-md-2"><img src="/static/assets/images/users/user-2.jpg" class="avatar" alt="user_avatar"></div>
-						<div class="col-lg-4 col-md-4">
-							<a href="#"><h3>Samira</h3>Egamberdiyeva</a>
-						</div>
-						<div class="col-lg-5 mt-3"><i class="small"><a href=""> Following 25; </a><a href=""> Followers 12k</a></i></div>
-						<div class="col-lg-2 col-md-2">
-							<div class="btn btn-success mt-3">Following</div>
-						</div>
-					</div>
+				<div class="row mt-5 justify-content-between">
+					<div class="col-auto"><h2 class="">Kuzatmoqdaman</h2></div>
+					<div class="col-auto"><a href="{% url 'main:follow' %}" class="btn app-btn-secondary">Hammasini ko'rish</a></div>
 				</div>
 
+{% for user in user %}
 				<div class="card mb-2 shadow-sm p-3	">
 					<div class="row">
-						<div class="col-lg-1 col-md-2"><img src="/static/assets/images/user.png" width="80" alt="user_avatar"></div>
+						
+						{% if user.avatar %}
+							<div class="col-lg-1 col-md-2"><img src="{{user.avatar.url}}" class="avatar" alt="user_avatar"></div>
+							{% else %}
+							<div class="col-lg-1 col-md-2"><img src="/static/assets/user.png" class="avatar" alt="user_avatar"></div>
+						{% endif %}
+							
+						
 						<div class="col-lg-4 col-md-4">
-							<a href="#"><h3>Abdulhamid</h3>Zuhriddinov</a>
+							<a href="{% url 'accounts:user_detail' user.slug %}"><h3>{{user.user.first_name}}</h3>{{user.user.last_name}}</a>
 						</div>
 						<div class="col-lg-5 mt-3"><i class="small"><a href=""> Following 25; </a><a href=""> Followers 12k</a></i></div>
 						<div class="col-lg-2 col-md-2">
@@ -58,6 +56,10 @@
 						</div>
 					</div>
 				</div>
+{% endfor %}
+	
+			    
+
 
 				<div class="row mt-5 justify-content-between">
 					<div class="col-auto"><h2 class="">Postlar</h2></div>

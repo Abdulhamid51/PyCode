@@ -19,17 +19,31 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 class ProfileView(LoginRequiredMixin, View):
 
 	def get(self, request):
-		form = UpdateAvatar(request.GET)
-		return render(request, 'account.html',{'form':form})
+		return render(request, 'account.html')	
 
 
-
-
-class ProfileUpdateView(LoginRequiredMixin, UpdateView):
+class UserDetailView(DetailView):
 	model = UserProfile
-	form_class = UpdateProfileForm
-	success_url = '/accounts/profile'
-	template_name = 'settings.html'
+	slug_field = 'slug'
+	template_name = 'profile.html'
+
+
+class ProfileUpdateView(LoginRequiredMixin,View):
+	def get(self, request):
+		form = UpdateProfileForm(instance=request.user.user_profile,)
+		return render(request, 'settings.html',{'form':form})	
+
+	def post(self, request):
+		form = UpdateProfileForm(instance=request.user.user_profile,
+								data=request.POST,
+								files=request.FILES)
+		if form.is_valid():
+			form.save()
+		else:
+			form = UpdateProfileForm(instance=request.user.user_profile)
+
+		return render(request, 'settings.html',{'form':form})
+		
 
 
 class Register(View):

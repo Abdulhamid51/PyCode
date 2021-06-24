@@ -1,11 +1,16 @@
 from django.shortcuts import render
 from django.views.generic.base import View
 from django.contrib.auth.mixins import LoginRequiredMixin
+from accounts.models import UserProfile
 # Create your views here.
 
 class HomeView(LoginRequiredMixin,View):
     def get(self, request):
-        return render(request, 'index.html')
+        users = UserProfile.objects.all().order_by('?')[:4]
+        context = {
+            'user':users,
+        }
+        return render(request, 'index.html', context)
 
 
 class MyPostsView(View):
@@ -15,7 +20,11 @@ class MyPostsView(View):
 
 class FollowView(View):
     def get(self, request):
-        return render(request, 'orders.html')
+        users = UserProfile.objects.all().order_by('-id')
+        context = {
+            'user':users,
+        }
+        return render(request, 'orders.html',context)
 
 
 class PostsView(View):
