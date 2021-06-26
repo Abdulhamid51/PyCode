@@ -1,3 +1,4 @@
+from main.models import *
 from django.shortcuts import render
 from django.views.generic.base import View
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -15,8 +16,15 @@ class HomeView(LoginRequiredMixin,View):
 
 class MyPostsView(View):
     def get(self, request):
-        return render(request, 'docs.html')
+        posts = Posts.objects.filter(author=request.user.user_profile)
+        blogs = Blogs.objects.filter(author=request.user.user_profile)
+        context = {'post':posts, 'blog':blogs}
+        return render(request, 'docs.html',context)
 
+
+class AddPostView(View):
+    def get(self, request):
+        return render(request, 'addpost.html')
 
 class FollowView(View):
     def get(self, request):
