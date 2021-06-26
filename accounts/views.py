@@ -57,15 +57,21 @@ class Register(View):
 		if form.is_valid():
 			print('@'*50)
 			u = form.save()
+			return redirect('/accounts/profile')
 			try:
 				user = UserProfile.objects.create(user=u,slug=u.username)
 				user.save()
+				return redirect('/accounts/profile')
 			except:
 				user = None
-			HttpResponseRedirect('/')
 		else:
 			print('#'*50)
 			form = RegisterForm()
 
+
 		context = {'form':form}
 		return render(request,'signup.html', context)
+
+
+
+

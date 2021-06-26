@@ -56,4 +56,24 @@ class UserProfile(models.Model):
 
     def get_absolute_url(self):
         return reverse("accounts:user_detail", kwargs={"user_detail": self.slug})
+
+
+# class UserPost(models.Model):
+#     title = models.CharField('Po\'st nomi',max_length=400)
+#     body = RichTextField()
+#     image = ImageField('Po\'st rasmi',upload_to='user_post/')
+#     tag = 
+
+
+
+
+
+
+
+
+
+
+
+
+
     
