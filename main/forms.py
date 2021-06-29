@@ -5,4 +5,5 @@ class AddPostForm(forms.ModelForm):
 
     class Meta:
         model = Posts
-        feilds = '__all__'
+        feilds = ['title','tag','body']
+        exclude = ('author','slug')

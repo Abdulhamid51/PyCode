@@ -1,0 +1,41 @@
+{% extends 'wrapper.html' %}
+{% load static %}
+
+
+{% block content %}
+	
+<div class="app-wrapper">
+
+
+<form action="", method="POST" class="p-5">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-lg-6">
+            <label for="">Post nomi</label>
+            {{form.title}}
+            <label for="">Post tegi (Ctrl bilan tanlang)</label>
+            {{form.tag}}
+        </div>
+        <div class="col-lg-6">
+            <label for="">Post matni</label>
+            {{form.body}}
+        </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Joylash</button>
+</form>
+
+<script>
+    document.querySelector('#id_title').className='form-control mb-2'
+    document.querySelector('#id_tag').className='form-control mb-2 w-50'
+    document.querySelector('#id_body').className='form-control'
+</script>
+<script>
+	if ( window.history.replaceState ) {
+	 window.history.replaceState( null, null, window.location.href );
+	}
+</script>
+
+</div>
+
+{% endblock content %}
